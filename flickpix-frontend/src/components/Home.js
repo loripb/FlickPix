@@ -2,10 +2,8 @@ import React from 'react';
 import {Route, Switch, Link, NavLink} from 'react-router-dom'
 import MovieContainer from './MovieContainer';
 import VerticalSidebar from './VerticalSidebar';
-import {
-  Segment,
-  Sidebar,
-} from 'semantic-ui-react';
+import MovieButton from './MovieButton'
+import {Segment, Sidebar} from 'semantic-ui-react';
 
 export default class Home extends React.Component {
   state = {
@@ -13,6 +11,7 @@ export default class Home extends React.Component {
     direction: 'left',
     dimmed: false,
     visible: false,
+    showMovie: false,
   }
 
   handleAnimationChange = (animation) => () =>
@@ -23,17 +22,19 @@ export default class Home extends React.Component {
   handleDirectionChange = (direction) => () =>
     this.setState({ direction, visible: false })
 
+
+
   render() {
     const { animation, dimmed, direction, visible } = this.state
     const vertical = direction === 'bottom' || direction === 'top'
 
     return (
       <div>
+
         <h1 className="ui orange center aligned header">
           FlickPix
         </h1>
-        <i className="bars icon" onClick={this.handleAnimationChange('scale down')}></i>
-
+        <i className="bars icon big" onClick={this.handleAnimationChange('scale down')}></i>
         <Sidebar.Pushable as={Segment}>
           {vertical ? null : (
             <VerticalSidebar
@@ -44,11 +45,7 @@ export default class Home extends React.Component {
           )}
 
           <Sidebar.Pusher dimmed={dimmed && visible}>
-            <div className="ui container">
-              <div className="ui text container">
-                <button className="ui fluid red massive button">Get a random Movie!</button>
-              </div>
-            </div>
+            <MovieButton />
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>
