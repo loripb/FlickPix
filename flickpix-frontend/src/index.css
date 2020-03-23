@@ -39,6 +39,11 @@ div.ui.segment {
 
 div#push {
   margin: auto;
+  background-image: url("https://cdn.digg.com/wp-content/uploads/2020/01/16124337/Screen-Shot-2020-01-16-at-11.42.56-AM.png")
+}
+
+div.ui.segment.pushable {
+  background-color: black;
 }
 
 div#whole {
@@ -46,6 +51,6 @@ div#whole {
 }
 
 div.ui.center.aligned.container {
-  margin-top: 15%; 
+  margin-top: 15%;
   margin-bottom: 20%;
 }

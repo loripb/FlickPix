@@ -39,7 +39,7 @@ export default class Home extends React.Component {
         <h1 className="ui orange center aligned header">
           FlickPix
         </h1>
-        <i className="bars icon orange big" onClick={ this.handleAnimationChange('scale down') }></i>
+        <i className="bars icon orange big" id="segment" onClick={ this.handleAnimationChange('scale down') }></i>
         <Sidebar.Pushable as={ Segment }>
           {vertical ? null : (
             <VerticalSidebar
@@ -53,7 +53,7 @@ export default class Home extends React.Component {
             {
               this.state.showMovie
               ?
-              <MovieContainer handleButtonClick={ this.handleButtonClick } movies={ this.props.movies }/> 
+              <MovieContainer handleButtonClick={ this.handleButtonClick } movies={ this.props.movies }/>
               :
               <MovieButton handleButtonClick={ this.handleButtonClick } />
             }
