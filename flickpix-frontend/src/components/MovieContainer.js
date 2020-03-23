@@ -4,7 +4,7 @@ class MovieContainer extends Component {
 
   render() {
     return (
-      <div>hello from movie container</div>
+      <div onClick={ this.props.handleButtonClick }>hello from movie container</div>
     );
   }
 
