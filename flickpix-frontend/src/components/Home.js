@@ -34,12 +34,12 @@ export default class Home extends React.Component {
     const vertical = direction === 'bottom' || direction === 'top'
 
     return (
-      <div>
+      <div id="whole">
 
         <h1 className="ui orange center aligned header">
           FlickPix
         </h1>
-        <i className="bars icon big" onClick={ this.handleAnimationChange('scale down') }></i>
+        <i className="bars icon orange big" onClick={ this.handleAnimationChange('scale down') }></i>
         <Sidebar.Pushable as={ Segment }>
           {vertical ? null : (
             <VerticalSidebar
@@ -49,8 +49,14 @@ export default class Home extends React.Component {
             />
           )}
 
-          <Sidebar.Pusher dimmed={ dimmed && visible }>
-            { this.state.showMovie ? <MovieContainer handleButtonClick={ this.handleButtonClick } /> : <MovieButton handleButtonClick={ this.handleButtonClick } /> }
+          <Sidebar.Pusher id="push" dimmed={ dimmed && visible }>
+            {
+              this.state.showMovie
+              ?
+              <MovieContainer handleButtonClick={ this.handleButtonClick } movies={ this.props.movies }/> 
+              :
+              <MovieButton handleButtonClick={ this.handleButtonClick } />
+            }
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>

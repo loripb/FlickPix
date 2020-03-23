@@ -21,9 +21,8 @@ export default class app extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
-      <Home />
+      <Home movies={ this.state.movies }/>
     )
   }
 }

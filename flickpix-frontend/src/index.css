@@ -37,6 +37,15 @@ div.ui.segment {
   color: orange;
 }
 
-div.pusher {
+div#push {
   margin: auto;
+}
+
+div#whole {
+  background-color: black;
+}
+
+div.ui.center.aligned.container {
+  margin-top: 15%; 
+  margin-bottom: 20%;
 }
