@@ -35,11 +35,13 @@ export default class Home extends React.Component {
 
     return (
       <div id="whole">
-
-        <h1 className="ui orange center aligned header">
-          FlickPix
-        </h1>
-        <i className="bars icon orange big" id="segment" onClick={ this.handleAnimationChange('scale down') }></i>
+        <Link to='/' exact activeClassName="selected">
+          <h1 className="ui orange center aligned header">
+            FlickPix
+          </h1>
+        </Link>
+        <i className="bars icon orange big" id="segment" onClick={ this.handleAnimationChange('uncover') }></i>
+        <h2>Hello, {this.props.userName}</h2>
         <Sidebar.Pushable as={ Segment }>
           {vertical ? null : (
             <VerticalSidebar

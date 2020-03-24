@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
 
     info = {
       movies: movies,
-      users:  users,
       queues: users.map do |user|
         user.user_queues
       end

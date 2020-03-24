@@ -44,13 +44,29 @@ div#push {
 
 div.ui.segment.pushable {
   background-color: black;
+
 }
 
 div#whole {
   background-color: black;
+
 }
 
 div.ui.center.aligned.container {
   margin-top: 15%;
   margin-bottom: 20%;
+}
+
+.ui.form {
+  padding-bottom: 100%;
+}
+
+.ui.form .field>label, .ui.checkbox input.hidden+label {
+  color: white;
+  text-align: left;
+}
+
+h2 {
+  margin: 30;
+  color: #FF7400 ;
 }

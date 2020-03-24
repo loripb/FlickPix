@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:persist]
 
+  def index
+    users = User.all
+
+    render json: users.to_json
+  end
 
   def create
     @user = User.create(user_params)
     if @user.valid?
-      info = {user_id: @user.id}
-      token = encode_token(info)
-      render json: {user: UserSerializer.new(@user), token: token}
+      infoToSaveInBox = {user_id: @user.id}
+      wristband = encode_token(infoToSaveInBox)
+      render json: {user: UserSerializer.new(@user), token: wristband}
     else
       render json: {error: @user.errors.full_messages}
     end
@@ -16,20 +21,20 @@ class UsersController < ApplicationController
 
 
   def persist
-    info = {user_id: @user.id}
-    token = encode_token(info)
-    render json: {user: UserSerializer.new(@user), token: token}
+    infoToSaveInBox = {user_id: @user.id}
+    wristband = encode_token(infoToSaveInBox)
+    render json: {user: UserSerializer.new(@user), token: wristband}
   end
 
 
   def login
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      info = {user_id: @user.id}
-      token = encode_token(info)
-      render json: {user: UserSerializer.new(@user), token: token}
+      infoToSaveInBox = {user_id: @user.id}
+      wristband = encode_token(infoToSaveInBox)
+      render json: {user: UserSerializer.new(@user), token: wristband}
     else
-      render json: {error: "INVALID USERNAME OR PASSWORD"}
+      render json: {error: "NICE TRY, INCORRECT USERNAME OR PASSWORD"}
     end
   end
 
@@ -38,4 +43,6 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:username, :password)
   end
+
+
 end

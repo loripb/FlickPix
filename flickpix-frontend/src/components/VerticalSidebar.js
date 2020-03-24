@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -23,18 +24,30 @@ const VerticalSidebar = ({ animation, direction, visible }) => (
     visible={visible}
     width='thin'
   >
-    <Menu.Item as='a'>
-      <Icon name='home' />
-      Home
-    </Menu.Item>
-    <Menu.Item as='a'>
-      <Icon name='gamepad' />
-      Games
-    </Menu.Item>
-    <Menu.Item as='a'>
-      <Icon name='camera' />
-      Channels
-    </Menu.Item>
+    <NavLink to='/' exact activeClassName="selected">
+      <Menu.Item>
+        <Icon name='home' />
+        Home
+      </Menu.Item>
+    </NavLink>
+    <NavLink to='/' exact activeClassName="selected">
+      <Menu.Item>
+        <Icon name='gamepad' />
+        Queue
+      </Menu.Item>
+    </NavLink>
+    <NavLink to='/login' exact activeClassName="selected">
+      <Menu.Item>
+        <Icon name='camera' />
+        Login
+      </Menu.Item>
+    </NavLink>
+    <NavLink to='/register' exact activeClassName="selected">
+      <Menu.Item>
+        <Icon name='camera' />
+          Register
+      </Menu.Item>
+    </NavLink>
   </Sidebar>
 )
 
