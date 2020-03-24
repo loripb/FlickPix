@@ -32,19 +32,19 @@ const VerticalSidebar = ({ animation, direction, visible }) => (
     </NavLink>
     <NavLink to='/' exact activeClassName="selected">
       <Menu.Item>
-        <Icon name='gamepad' />
+        <Icon name='film' />
         Queue
       </Menu.Item>
     </NavLink>
     <NavLink to='/login' exact activeClassName="selected">
       <Menu.Item>
-        <Icon name='camera' />
+        <Icon name='address card' />
         Login
       </Menu.Item>
     </NavLink>
     <NavLink to='/register' exact activeClassName="selected">
       <Menu.Item>
-        <Icon name='camera' />
+        <Icon name='plus' />
           Register
       </Menu.Item>
     </NavLink>
