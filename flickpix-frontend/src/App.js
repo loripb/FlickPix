@@ -53,8 +53,6 @@ class App extends React.Component {
   }
 
   handleLoginSubmit = (userInfo) => {
-    console.log("Login form has been submitted")
-    console.log(userInfo, 'from login submit')
 
     fetch("http://localhost:4000/login", {
       method: "POST",
@@ -68,7 +66,6 @@ class App extends React.Component {
   }
 
   handleRegisterSubmit = (userInfo) => {
-    console.log("Register form has been submitted")
     fetch("http://localhost:4000/users", {
       method: "POST",
       headers: {
@@ -83,7 +80,6 @@ class App extends React.Component {
     .then(this.handleResponse)
   }
 
-
   renderForm = (routerProps) => {
     if(routerProps.location.pathname === "/login"){
       return <FormContainer formName="Login Form" handleSubmit={this.handleLoginSubmit}/>
@@ -93,12 +89,16 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <Switch>
           <Route path="/login" render={ this.renderForm } />
           <Route path="/register" render={ this.renderForm } />
-          <Route path="/" exact render={() => <Home userName={this.state.user.username} movies={ this.state.movies } /> } />
+          <Route path="/" exact render={() =>
+              <Home
+                userName={this.state.user.username}
+                movies={ this.state.movies }
+              />
+            } />
           <Route render={ () => <p>Page not Found</p> } />
       </Switch>
     )
