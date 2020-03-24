@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Switch, Link, NavLink } from 'react-router-dom'
 import VerticalSidebar from './VerticalSidebar';
-import { Segment, Sidebar, Button } from 'semantic-ui-react';
+import { Segment, Sidebar} from 'semantic-ui-react';
 import MovieContainer from './MovieContainer';
 import MovieButton from './MovieButton'
 
@@ -34,11 +33,9 @@ export default class Home extends React.Component {
 
     return (
       <div id="whole">
-        <Link to='/' exact activeClassName="selected">
-          <h1 className="ui orange center aligned header">
-            FlickPix
-          </h1>
-        </Link>
+        <h1 className="ui orange center aligned header">
+          FlickPix
+        </h1>
         <i className="bars icon orange big" id="segment" onClick={ this.handleAnimationChange('uncover') }></i>
         <h2>Hello, {this.props.userName}</h2>
 

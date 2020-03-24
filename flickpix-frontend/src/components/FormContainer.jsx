@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import App from '../App'
-import { NavLink } from 'react-router-dom'
 import { Container, Button, Checkbox, Form } from 'semantic-ui-react'
 
 class FormContainer extends Component {
@@ -24,7 +23,6 @@ class FormContainer extends Component {
   }
 
   render() {
-    let { formname } = this.props
     let { username, password } = this.state
 
     return (

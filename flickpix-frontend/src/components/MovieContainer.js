@@ -9,7 +9,7 @@ class MovieContainer extends React.Component {
     return(
       <Container textAlign='center'>
         <Card id="movie" className="ui centered card">
-          <Image src={this.movieObj.poster_path} wrapped ui={false} />
+          <Image src="" wrapped ui={false} />
           <Card.Content>
             <Card.Header>{this.movieObj.title}</Card.Header>
             <Card.Meta>Rating: {this.movieObj.popularity}</Card.Meta>
