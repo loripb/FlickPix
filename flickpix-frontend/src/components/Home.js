@@ -2,7 +2,8 @@ import React from 'react';
 import VerticalSidebar from './VerticalSidebar';
 import { Segment, Sidebar} from 'semantic-ui-react';
 import MovieContainer from './MovieContainer';
-import MovieButton from './MovieButton'
+import MovieButton from './MovieButton';
+import TableComponent from './TableComponent'
 
 export default class Home extends React.Component {
   state = {
@@ -11,6 +12,7 @@ export default class Home extends React.Component {
     dimmed: false,
     visible: false,
     showMovie: false,
+    showQueue: false
   }
 
   handleAnimationChange = (animation) => () =>
@@ -25,6 +27,16 @@ export default class Home extends React.Component {
     this.setState({
       showMovie: !this.state.showMovie
     })
+  }
+
+  handleShowQueue = () => {
+    this.setState({ showQueue: !this.state.showQueue })
+    this.handleAnimationChange('uncover')
+  }
+
+  handleQueueClick = () => {
+    this.handleShowQueue()
+    this.handleAnimationChange('uncover')
   }
 
   render() {
@@ -45,14 +57,24 @@ export default class Home extends React.Component {
               animation={ animation }
               direction={ direction }
               visible={ visible }
+              handleClick={ this.handleQueueClick }
             />
           )}
 
           <Sidebar.Pusher id="push" dimmed={ dimmed && visible }>
             {
+              this.state.showQueue
+              ?
+              <TableComponent />
+              :
               this.state.showMovie
               ?
-              <MovieContainer addMovieToQueue={ this.props.addMovieToQueue } handleButtonClick={ this.handleButtonClick } movies={ this.props.movies } />
+              <MovieContainer
+                updateQueue={ this.props.updateQueue }
+                addMovieToQueue={ this.props.addMovieToQueue }
+                handleButtonClick={ this.handleButtonClick }
+                movies={ this.props.movies }
+              />
               :
               <MovieButton handleButtonClick={ this.handleButtonClick } />
             }

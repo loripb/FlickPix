@@ -52,7 +52,7 @@ div#whole {
 
 }
 
-div.ui.center.aligned.container {
+div.ui.center.aligned.container, table.ui.celled.definition.compact.table {
   margin-top: 15%;
   margin-bottom: 20%;
 }

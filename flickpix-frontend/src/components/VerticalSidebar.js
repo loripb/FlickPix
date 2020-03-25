@@ -7,7 +7,8 @@ import {
   Sidebar,
 } from 'semantic-ui-react';
 
-const VerticalSidebar = ({ animation, direction, visible }) => (
+const VerticalSidebar = ({ animation, direction, visible, handleClick }) => (
+
   <Sidebar
     as={Menu}
     animation={animation}
@@ -24,12 +25,12 @@ const VerticalSidebar = ({ animation, direction, visible }) => (
         Home
       </Menu.Item>
     </NavLink>
-    <NavLink to='/' exact activeClassName="selected">
+    <div onClick={ handleClick } className="queue-button">
       <Menu.Item>
         <Icon name='film' />
         Queue
       </Menu.Item>
-    </NavLink>
+    </div>
     <NavLink to='/login' exact activeClassName="selected">
       <Menu.Item>
         <Icon name='address card' />

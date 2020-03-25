@@ -99,6 +99,10 @@ class App extends React.Component {
     })
   }
 
+  updateQueue = () => {
+    console.log("hi");
+  }
+
   render() {
     return (
       <Switch>
@@ -109,6 +113,7 @@ class App extends React.Component {
                 userName={ this.state.user.username }
                 movies={ this.state.movies }
                 addMovieToQueue={ this.addMovieToQueue }
+                updateQueue={ this.updateQueue }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />
