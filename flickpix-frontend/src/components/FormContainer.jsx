@@ -12,7 +12,6 @@ class FormContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.handleSubmit(this.state)
-    console.log(this.state)
     return <App />
   }
 

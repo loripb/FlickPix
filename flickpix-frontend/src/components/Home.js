@@ -30,7 +30,7 @@ export default class Home extends React.Component {
   render() {
     const { animation, dimmed, direction, visible } = this.state
     const vertical = direction === 'bottom' || direction === 'top'
-    console.log(this.props)
+
     return (
       <div id="whole">
         <h1 className="ui orange center aligned header">

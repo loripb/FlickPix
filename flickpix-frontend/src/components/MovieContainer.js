@@ -5,8 +5,20 @@ class MovieContainer extends React.Component {
 
   movieObj = this.props.movies[Math.floor(Math.random() * 19)]
 
-  handleHeartClick = () => {
-    this.props.addMovieToQueue(this.movieObj.id)
+  handleHeartClick = (movieObj) => {
+
+    fetch("http://localhost:4000/movies", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      body: JSON.stringify({
+        ...movieObj, movie_id: movieObj.id
+      })
+    })
+    .then(r => r.json())
+    .then(newMovieObj => this.props.addMovieToQueue(newMovieObj.id))
   }
 
   render() {
@@ -27,7 +39,7 @@ class MovieContainer extends React.Component {
               <Icon onClick={ this.props.handleButtonClick } name='angle double left' />
             </a>
             <a alt="Add to queue">
-              <Icon onClick={ this.handleHeartClick } name='heart' />
+              <Icon onClick={ this.handleHeartClick(this.movieObj) } name='heart' />
             </a>
           </Card.Content>
         </Card>

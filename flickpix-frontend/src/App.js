@@ -5,7 +5,7 @@ import FormContainer from './components/FormContainer';
 
 import { withRouter } from 'react-router-dom'
 
-let api = `http://localhost:4000/movies`;
+let api = `http://localhost:4000/api`;
 
 class App extends React.Component {
   state = {
@@ -28,11 +28,10 @@ class App extends React.Component {
       .then(this.handleResponse)
     }
 
-    fetch(api)
+    fetch("http://localhost:4000/api")
     .then(r => r.json())
     .then(data => this.setState({
-      movies: data.movies.results,
-      queues: data.queues
+      movies: data.results
     }))
   }
 
@@ -98,8 +97,6 @@ class App extends React.Component {
         user_id: this.state.user.id
       })
     })
-    .then(r => r.json())
-    .then(queueData => console.log(queueData))
   }
 
   render() {

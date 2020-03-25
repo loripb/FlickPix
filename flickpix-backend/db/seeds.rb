@@ -5,3 +5,5 @@
 #
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(username: "lei", password_diguest: "password")
+
+Movie.destroy_all
