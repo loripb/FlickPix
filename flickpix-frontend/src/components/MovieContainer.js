@@ -3,6 +3,10 @@ import { Card, Icon, Image, Container } from 'semantic-ui-react'
 
 class MovieContainer extends React.Component {
 
+  handleHeartClick = () => {
+    this.props.addMovieToQueue()
+  }
+
   movieObj = this.props.movies[Math.floor(Math.random() * 19)]
 
   render() {
@@ -19,8 +23,11 @@ class MovieContainer extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
+            <a alt="Back">
               <Icon onClick={ this.props.handleButtonClick } name='angle double left' />
+            </a>
+            <a alt="Add to queue">
+              <Icon onClick={ this.handleHeartClick } name='heart' />
             </a>
           </Card.Content>
         </Card>

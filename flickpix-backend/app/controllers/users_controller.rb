@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:persist]
 
-  def index
-    users = User.all
-
-    render json: users.to_json
-  end
-
   def create
     @user = User.create(user_params)
     if @user.valid?

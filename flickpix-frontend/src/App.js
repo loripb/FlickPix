@@ -10,7 +10,6 @@ let api = `http://localhost:4000/movies`;
 class App extends React.Component {
   state = {
     movies: [],
-    queues: [],
     user: {
       id: 0,
       username: "",
@@ -88,6 +87,24 @@ class App extends React.Component {
     }
   }
 
+  addMovieToQueue = (id) => {
+    fetch("http://localhost:4000/user_queues", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        movie_id: id,
+        user_id: this.state.user.id
+      })
+    })
+    .then(r => r.json())
+    .then(queueData => {
+      let updatedUser = [this.state.user]
+      console.log(updatedUser)
+    })
+  }
+
   render() {
     return (
       <Switch>
@@ -95,8 +112,9 @@ class App extends React.Component {
           <Route path="/register" render={ this.renderForm } />
           <Route path="/" exact render={() =>
               <Home
-                userName={this.state.user.username}
+                userName={ this.state.user.username }
                 movies={ this.state.movies }
+                addMovieToQueue={ this.addMovieToQueue }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />
