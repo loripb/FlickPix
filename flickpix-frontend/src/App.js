@@ -12,8 +12,7 @@ class App extends React.Component {
     movies: [],
     user: {
       id: 0,
-      username: "",
-      user_queues: []
+      username: ""
     },
     token: ""
   }
@@ -91,7 +90,8 @@ class App extends React.Component {
     fetch("http://localhost:4000/user_queues", {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+        "accept": "application/json"
       },
       body: JSON.stringify({
         movie_id: id,
@@ -99,10 +99,7 @@ class App extends React.Component {
       })
     })
     .then(r => r.json())
-    .then(queueData => {
-      let updatedUser = [this.state.user]
-      console.log(updatedUser)
-    })
+    .then(queueData => console.log(queueData))
   }
 
   render() {

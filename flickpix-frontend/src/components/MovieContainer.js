@@ -3,11 +3,11 @@ import { Card, Icon, Image, Container } from 'semantic-ui-react'
 
 class MovieContainer extends React.Component {
 
-  handleHeartClick = () => {
-    this.props.addMovieToQueue()
-  }
-
   movieObj = this.props.movies[Math.floor(Math.random() * 19)]
+
+  handleHeartClick = () => {
+    this.props.addMovieToQueue(this.movieObj.id)
+  }
 
   render() {
     return(
