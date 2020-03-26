@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  popularity: 1.5
+  title: MyString
+  overview: MyString
+  adult: false
+  poster_path: MyString
+
+two:
+  popularity: 1.5
+  title: MyString
+  overview: MyString
+  adult: false
+  poster_path: MyString
