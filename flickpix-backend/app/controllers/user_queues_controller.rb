@@ -13,7 +13,7 @@ class UserQueuesController < ApplicationController
     render json: queue.to_json
   end
 
-  def delete
+  def destroy
     queue = UserQueue.find(params[:id])
     queue.destroy
   end
@@ -21,6 +21,6 @@ class UserQueuesController < ApplicationController
   private
 
   def queue_params
-    params.permit(:user_id, :movie_id, :watched)
+    params.permit(:user_id, :movie_id, :watched, :user_queue)
   end
 end

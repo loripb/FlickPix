@@ -6,7 +6,13 @@ const TableComponent = (props) => {
 
   let renderQueue = () => {
     return props.userObj.user_queues.map( queue => {
-      return <TableRow queueObj={ queue } key={ queue.id } />
+      return <TableRow
+        queueObj={ queue }
+        key={ queue.id }
+        updateQueue={ props.updateQueue }
+        backendMovies={ props.backendMovies }
+        deleteFromQueue={ props.deleteFromQueue }
+      />
     })
   }
 

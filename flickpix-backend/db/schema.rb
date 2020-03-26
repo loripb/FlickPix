@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2020_03_21_163118) do
     t.string "backdrop_path"
     t.string "original_language"
     t.string "original_title"
-    t.string "genre_ids"
     t.string "vote_average"
     t.string "poster_path"
+    t.string "release_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

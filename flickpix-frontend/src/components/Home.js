@@ -67,6 +67,9 @@ export default class Home extends React.Component {
               ?
               <TableComponent
                 userObj={  this.props.userObj }
+                updateQueue={ this.props.updateQueue }
+                backendMovies={ this.props.backendMovies }
+                deleteFromQueue={ this.props.deleteFromQueue }
               />
               :
               this.state.showMovie

@@ -9,6 +9,7 @@ let api = `http://localhost:4000/api`;
 
 class App extends React.Component {
   state = {
+    backendMovies: [],
     movies: [],
     user: {
       id: 0,
@@ -34,6 +35,15 @@ class App extends React.Component {
     .then(data => this.setState({
       movies: data.results
     }))
+
+    fetch("http://localhost:4000/movies")
+    .then(r => r.json())
+    .then(data => {
+      this.setState({
+        backendMovies: data
+      })
+      console.log("adds new movie in fetch");
+    })
   }
 
   handleResponse = (response) => {
@@ -87,7 +97,7 @@ class App extends React.Component {
   }
 
   addMovieToQueue = (movieObj) => {
-    console.log(movieObj);
+    console.log(movieObj.id, 'FROM APP');
     fetch("http://localhost:4000/user_queues", {
       method: "POST",
       headers: {
@@ -105,17 +115,64 @@ class App extends React.Component {
       user: {
         ...this.state.user,
         user_queues: [...this.state.user.user_queues, newMovieForQueue]
-      }
+      },
+      backendMovies: [...this.state.backendMovies, movieObj]
     })
     })
   }
 
-  updateQueue = () => {
-    console.log("hi");
+  updateQueue = (queueObj) => {
+    fetch(`http://localhost:4000/user_queues/${queueObj.id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      body: JSON.stringify({
+        ...queueObj,
+        watched: !queueObj.watched
+      })
+    })
+    .then(r => r.json())
+    .then(queue_res => {
+      let theUpdatedArray = this.state.user.user_queues.map((queue) => {
+        if (queue.id === queueObj.id) {
+          return {
+            ...queue,
+            watched: !queue.watched
+          }
+        } else {
+          return queue
+        }
+      })
+
+      this.setState({
+        user: {
+          ...this.state.user,
+          user_queues: theUpdatedArray
+        }
+      })
+    })
+
+  }
+
+  deleteFromQueue = (queueObj) => {
+    let filteredQueue = this.state.user.user_queues.filter(queue => queue.id !== queueObj.id)
+    console.log(filteredQueue, "from delete");
+    this.setState({
+      user: {
+        ...this.state.user,
+        user_queues: filteredQueue
+      }
+    })
+    fetch(`http://localhost:4000/user_queues/${queueObj.id}`, {
+      method: "DELETE"
+    })
+
   }
 
   render() {
-    console.log(this.state.user);
+    console.log(this.state.user.user_queues, "FROM APP")
     return (
       <Switch>
           <Route path="/login" render={ this.renderForm } />
@@ -124,10 +181,12 @@ class App extends React.Component {
               <Home
                 userName={ this.state.user.username }
                 movies={ this.state.movies }
+                backendMovies={ this.state.backendMovies }
                 addMovieToQueue={ this.addMovieToQueue }
                 updateQueue={ this.updateQueue }
                 userObj={ this.state.user }
                 updateQueue={ this.updateQueue }
+                deleteFromQueue={ this.deleteFromQueue }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />

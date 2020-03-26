@@ -4,6 +4,7 @@
 # Examples:
 #
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(username: "lei", password_diguest: "password")
-
+UserQueue.destroy_all
 Movie.destroy_all
+User.destroy_all
+puts "done!"
