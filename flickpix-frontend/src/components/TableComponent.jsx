@@ -17,7 +17,7 @@ const TableComponent = (props) => {
   }
 
   return (
-  <Table celled compact definition>
+  <Table inverted celled compact definition>
     <Table.Header fullWidth>
       <Table.Row>
         <Table.HeaderCell>Watched</Table.HeaderCell>
@@ -35,19 +35,6 @@ const TableComponent = (props) => {
       <Table.Row>
         <Table.HeaderCell />
         <Table.HeaderCell colSpan='4'>
-          <Button
-            floated='right'
-            icon
-            labelPosition='left'
-            primary
-            size='small'
-          >
-            <Icon name='user' /> Add User
-          </Button>
-          <Button size='small'>Approve</Button>
-          <Button disabled size='small'>
-            Approve All
-          </Button>
         </Table.HeaderCell>
       </Table.Row>
     </Table.Footer>

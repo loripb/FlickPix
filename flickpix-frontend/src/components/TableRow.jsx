@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import { Button, Checkbox, Icon, Table, Label } from 'semantic-ui-react'
 
 class TableRow extends Component {
 
@@ -29,7 +29,15 @@ class TableRow extends Component {
       <Table.Body>
         <Table.Row>
           <Table.Cell collapsing>
-            <Checkbox slider onClick={ this.handleSliderClick} />
+            <Button as='div' labelPosition='right'>
+              <Button color='orange' onClick={ this.handleSliderClick }>
+                <Icon name='heart' />
+                Toggle
+              </Button>
+                <Label as='a' basic color='red' pointing='left'>
+                  {this.props.queueObj.watched ? "watched" : "queued"}
+                </Label>
+           </Button>
           </Table.Cell>
           <Table.Cell>{ this.state.movie.title }</Table.Cell>
           <Table.Cell>{ this.state.movie.vote_average }</Table.Cell>
