@@ -12,7 +12,8 @@ class App extends React.Component {
     movies: [],
     user: {
       id: 0,
-      username: ""
+      username: "",
+      user_queues: []
     },
     token: ""
   }
@@ -85,7 +86,8 @@ class App extends React.Component {
     }
   }
 
-  addMovieToQueue = (id) => {
+  addMovieToQueue = (movieObj) => {
+    console.log(movieObj);
     fetch("http://localhost:4000/user_queues", {
       method: "POST",
       headers: {
@@ -93,9 +95,18 @@ class App extends React.Component {
         "accept": "application/json"
       },
       body: JSON.stringify({
-        movie_id: id,
+        movie_id: movieObj.id,
         user_id: this.state.user.id
       })
+    })
+    .then(r => r.json())
+    .then(newMovieForQueue => {
+      this.setState({
+      user: {
+        ...this.state.user,
+        user_queues: [...this.state.user.user_queues, newMovieForQueue]
+      }
+    })
     })
   }
 
@@ -104,6 +115,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <Switch>
           <Route path="/login" render={ this.renderForm } />
@@ -114,6 +126,7 @@ class App extends React.Component {
                 movies={ this.state.movies }
                 addMovieToQueue={ this.addMovieToQueue }
                 updateQueue={ this.updateQueue }
+                userObj={ this.state.user }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />

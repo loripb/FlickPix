@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(:movie_id, :popularity, :title, :overview, :adult, :poster_path)
+    params.permit(:movie_id, :popularity, :title, :overview, :adult, :poster_path, :video, :vote_count, :backdrop_path, :original_language, :original_title, :genre_ids, :vote_average, :user_queue)
   end
 
 end

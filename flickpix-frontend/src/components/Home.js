@@ -65,7 +65,9 @@ export default class Home extends React.Component {
             {
               this.state.showQueue
               ?
-              <TableComponent />
+              <TableComponent
+                userObj={  this.props.userObj }
+              />
               :
               this.state.showMovie
               ?
@@ -73,7 +75,7 @@ export default class Home extends React.Component {
                 updateQueue={ this.props.updateQueue }
                 addMovieToQueue={ this.props.addMovieToQueue }
                 handleButtonClick={ this.handleButtonClick }
-                movies={ this.props.movies }
+                movie={ this.props.movies[Math.floor(Math.random() * 19)] }
               />
               :
               <MovieButton handleButtonClick={ this.handleButtonClick } />
