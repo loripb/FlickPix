@@ -27,7 +27,18 @@ class TableRow extends Component {
           <Table.Cell>{ this.state.movie.release_date }</Table.Cell>
           <Table.Cell>{ this.state.movie.vote_average }</Table.Cell>
           <Table.Cell>
-            <button class="ui icon button">delete<i aria-hidden="true" class="trash alternate"></i></button>
+            <Button animated>
+              <Button.Content visible>Edit</Button.Content>
+              <Button.Content hidden>
+                <Icon name='edit' />
+              </Button.Content>
+            </Button>
+            <Button animated>
+              <Button.Content visible>Delete</Button.Content>
+              <Button.Content hidden>
+                <Icon name='trash alternate' />
+              </Button.Content>
+            </Button>
           </Table.Cell>
         </Table.Row>
       </Table.Body>

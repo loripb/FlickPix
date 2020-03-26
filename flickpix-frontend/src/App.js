@@ -127,6 +127,7 @@ class App extends React.Component {
                 addMovieToQueue={ this.addMovieToQueue }
                 updateQueue={ this.updateQueue }
                 userObj={ this.state.user }
+                updateQueue={ this.updateQueue }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />
