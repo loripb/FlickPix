@@ -5,8 +5,8 @@ import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
 const TableComponent = (props) => {
 
   let renderQueue = () => {
-    return props.userObj.user_queues.map( movie => {
-      return <TableRow movieObj={ movie  } />
+    return props.userObj.user_queues.map( queue => {
+      return <TableRow queueObj={ queue } key={ queue.id } />
     })
   }
 
@@ -14,11 +14,12 @@ const TableComponent = (props) => {
   <Table celled compact definition>
     <Table.Header fullWidth>
       <Table.Row>
+        <Table.HeaderCell>Watched</Table.HeaderCell>
+        <Table.HeaderCell>Title</Table.HeaderCell>
+        <Table.HeaderCell>Rating</Table.HeaderCell>
+        <Table.HeaderCell>Release_date</Table.HeaderCell>
+        <Table.HeaderCell>Genres?</Table.HeaderCell>
         <Table.HeaderCell />
-        <Table.HeaderCell>Name</Table.HeaderCell>
-        <Table.HeaderCell>Registration Date</Table.HeaderCell>
-        <Table.HeaderCell>E-mail address</Table.HeaderCell>
-        <Table.HeaderCell>Premium Plan</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 

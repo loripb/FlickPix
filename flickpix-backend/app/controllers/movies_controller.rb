@@ -5,6 +5,12 @@ class MoviesController < ApplicationController
     render json: @movies
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+
+    render json: @movie
+  end
+
   def api
     @movies = Movie.get_movies
 
