@@ -16,7 +16,6 @@ class MovieContainer extends React.Component {
     })
     .then(r => r.json())
     .then(newMovieObj => {
-      console.log(newMovieObj, "FROM MOVIECONTAINER");
       this.props.addMovieToQueue(newMovieObj)
     })
   }

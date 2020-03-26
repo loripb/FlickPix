@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Checkbox, Icon, Table, Label } from 'semantic-ui-react'
+import { Button, Icon, Table, Label } from 'semantic-ui-react'
 
 class TableRow extends Component {
 

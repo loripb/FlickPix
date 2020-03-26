@@ -80,6 +80,7 @@ export default class Home extends React.Component {
                 addMovieToQueue={ this.props.addMovieToQueue }
                 handleButtonClick={ this.handleButtonClick }
                 movie={ this.props.movies[Math.floor(Math.random() * 19)] }
+                backendMovies={ this.props.backendMovies }
               />
               :
               <MovieButton handleButtonClick={ this.handleButtonClick } />

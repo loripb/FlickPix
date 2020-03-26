@@ -5,8 +5,6 @@ import FormContainer from './components/FormContainer';
 
 import { withRouter } from 'react-router-dom'
 
-let api = `http://localhost:4000/api`;
-
 class App extends React.Component {
   state = {
     backendMovies: [],
@@ -42,7 +40,6 @@ class App extends React.Component {
       this.setState({
         backendMovies: data
       })
-      console.log("adds new movie in fetch");
     })
   }
 
@@ -97,7 +94,6 @@ class App extends React.Component {
   }
 
   addMovieToQueue = (movieObj) => {
-    console.log(movieObj.id, 'FROM APP');
     fetch("http://localhost:4000/user_queues", {
       method: "POST",
       headers: {
@@ -158,7 +154,6 @@ class App extends React.Component {
 
   deleteFromQueue = (queueObj) => {
     let filteredQueue = this.state.user.user_queues.filter(queue => queue.id !== queueObj.id)
-    console.log(filteredQueue, "from delete");
     this.setState({
       user: {
         ...this.state.user,
@@ -172,7 +167,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user.user_queues, "FROM APP")
+
     return (
       <Switch>
           <Route path="/login" render={ this.renderForm } />

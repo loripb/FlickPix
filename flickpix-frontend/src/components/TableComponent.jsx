@@ -1,6 +1,6 @@
 import React from 'react'
 import TableRow from './TableRow'
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 const TableComponent = (props) => {
 
