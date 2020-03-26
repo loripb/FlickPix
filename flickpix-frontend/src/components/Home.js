@@ -34,9 +34,9 @@ export default class Home extends React.Component {
     this.handleAnimationChange('uncover')
   }
 
-  handleQueueClick = () => {
+  handleQueueClick = (animation) => {
     this.handleShowQueue()
-    this.handleAnimationChange('uncover')
+    return this.setState((prevState) => ({ animation, visible: !prevState.visible }))
   }
 
   render() {
@@ -58,6 +58,7 @@ export default class Home extends React.Component {
               direction={ direction }
               visible={ visible }
               handleClick={ this.handleQueueClick }
+              handleAnimationChange={ this.handleAnimationChange }
             />
           )}
 
