@@ -9,6 +9,6 @@ class Movie < ApplicationRecord
   format :json
 
   def self.get_movies
-    get("https://api.themoviedb.org/3/search/movie?api_key=3d6fab529007c80701a5d4ed2a0df61e&language=en-US&query=a&page=#{rand(1..285)}&include_adult=false")
+    get("https://api.themoviedb.org/3/search/movie?api_key=3d6fab529007c80701a5d4ed2a0df61e&language=en-US&query=#{['a', 'b', 'd', 'e', 'h', 'i', 'l', 'm', 'n', 'o', 'q', 's', 't', 'v', 'w', 'y', 'z'].sample}&page=#{rand(1..68)}&include_adult=false")
   end
 end
