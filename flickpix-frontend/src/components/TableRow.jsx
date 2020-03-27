@@ -31,8 +31,8 @@ class TableRow extends Component {
           <Table.Cell collapsing>
             <Button as='div' labelPosition='right'>
               <Button color='orange' onClick={ this.handleSliderClick }>
-                <Icon name='heart' />
-                Toggle
+                <Icon name='eye' />
+                
               </Button>
                 <Label as='a' basic color='red' pointing='left'>
                   {this.props.queueObj.watched ? "watched" : "queued"}
