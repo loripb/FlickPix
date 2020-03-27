@@ -1,6 +1,6 @@
 import React from 'react';
 import VerticalSidebar from './VerticalSidebar';
-import { Segment, Sidebar} from 'semantic-ui-react';
+import { Segment, Sidebar } from 'semantic-ui-react';
 import MovieContainer from './MovieContainer';
 import MovieButton from './MovieButton';
 import TableComponent from './TableComponent'

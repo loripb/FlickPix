@@ -70,6 +70,6 @@ div.ui.center.aligned.container {
   text-align: left;
 }
 
-i.home.icon::before, i.film.icon::before, i.address.card.icon::before, i.plus.icon::before, h2 {
+i.home.icon::before, i.film.icon::before, i.address.card.icon::before, i.plus.icon::before, i.log.out.icon::before, h2 {
   color: #FF7400;
 }

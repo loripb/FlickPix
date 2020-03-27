@@ -167,7 +167,6 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <Switch>
           <Route path="/login" render={ this.renderForm } />
@@ -182,6 +181,7 @@ class App extends React.Component {
                 userObj={ this.state.user }
                 updateQueue={ this.updateQueue }
                 deleteFromQueue={ this.deleteFromQueue }
+                logout={ this.logout }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />

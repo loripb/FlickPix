@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import React from 'react';
+import Logout from './Logout'
 import {
   Icon,
   Menu,
@@ -34,7 +35,7 @@ const VerticalSidebar = ({ animation, direction, visible, handleClick, handleAni
     <NavLink to='/login' exact activeClassName="selected">
       <Menu.Item>
         <Icon name='address card' />
-        Login
+        Log In
       </Menu.Item>
     </NavLink>
     <NavLink to='/register' exact activeClassName="selected">
@@ -43,6 +44,9 @@ const VerticalSidebar = ({ animation, direction, visible, handleClick, handleAni
           Register
       </Menu.Item>
     </NavLink>
+    <div>
+      <Logout />
+    </div>
   </Sidebar>
 )
 
