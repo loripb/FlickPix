@@ -8,7 +8,7 @@ import {
   Sidebar,
 } from 'semantic-ui-react';
 
-const VerticalSidebar = ({ animation, direction, visible, handleClick, handleAnimationChange }) => (
+const VerticalSidebar = ({ animation, direction, visible, handleClick, handleReRender }) => (
 
   <Sidebar
     as={Menu}
@@ -45,7 +45,7 @@ const VerticalSidebar = ({ animation, direction, visible, handleClick, handleAni
       </Menu.Item>
     </NavLink>
     <div>
-      <Logout />
+      <Logout handleReRender={ handleReRender } />
     </div>
   </Sidebar>
 )

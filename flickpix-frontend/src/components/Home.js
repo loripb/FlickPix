@@ -45,11 +45,11 @@ export default class Home extends React.Component {
 
     return (
       <div id="whole">
+      <h2>Hello {this.props.userName}</h2>
         <h1 className="ui orange center aligned header">
           FlickPix
         </h1>
         <i className="bars icon orange big" id="segment" onClick={ this.handleAnimationChange('uncover') }></i>
-        <h2>Hello, {this.props.userName}</h2>
 
         <Sidebar.Pushable as={ Segment }>
           {vertical ? null : (
@@ -59,6 +59,7 @@ export default class Home extends React.Component {
               visible={ visible }
               handleClick={ this.handleQueueClick }
               handleAnimationChange={ this.handleAnimationChange }
+              handleReRender={ this.props.handleReRender }
             />
           )}
 
@@ -85,7 +86,6 @@ export default class Home extends React.Component {
               :
               <>
                 <MovieButton shuffle={ this.props.shuffle } handleButtonClick={ this.handleButtonClick } />
-
               </>
             }
           </Sidebar.Pusher>

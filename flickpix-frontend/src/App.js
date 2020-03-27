@@ -14,7 +14,9 @@ class App extends React.Component {
       username: "",
       user_queues: []
     },
-    token: ""
+    token: "",
+    // will use setState to trigger a re-render
+    render: false
   }
 
   componentDidMount() {
@@ -172,7 +174,14 @@ class App extends React.Component {
     .then(data => this.setState({
       movies: data.results
     }))
-    console.log("done");
+  }
+
+  handleReRender = () => {
+    console.log(this.state.user);
+    this.setState({
+      render: true
+    })
+
   }
 
   render() {
@@ -192,6 +201,7 @@ class App extends React.Component {
                 deleteFromQueue={ this.deleteFromQueue }
                 logout={ this.logout }
                 shuffle={  this.shuffle }
+                handleReRender={ this.handleReRender }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />

@@ -9,7 +9,8 @@ class Logout extends Component {
 
   logout = () => {
     localStorage.clear('token');
-    this.setState({ navigate: true });
+    this.setState({ navigate: true })
+    this.props.handleReRender()
   };
 
   render() {
