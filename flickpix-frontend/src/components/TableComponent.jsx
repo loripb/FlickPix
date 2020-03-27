@@ -24,7 +24,7 @@ const TableComponent = (props) => {
         <Table.HeaderCell>Title</Table.HeaderCell>
         <Table.HeaderCell>Rating</Table.HeaderCell>
         <Table.HeaderCell>Release_date</Table.HeaderCell>
-        <Table.HeaderCell>Genres?</Table.HeaderCell>
+        <Table.HeaderCell>Overview</Table.HeaderCell>
         <Table.HeaderCell />
       </Table.Row>
     </Table.Header>

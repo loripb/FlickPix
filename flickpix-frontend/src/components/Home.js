@@ -1,6 +1,6 @@
 import React from 'react';
 import VerticalSidebar from './VerticalSidebar';
-import { Segment, Sidebar } from 'semantic-ui-react';
+import { Segment, Sidebar, Button } from 'semantic-ui-react';
 import MovieContainer from './MovieContainer';
 import MovieButton from './MovieButton';
 import TableComponent from './TableComponent'
@@ -83,7 +83,10 @@ export default class Home extends React.Component {
                 backendMovies={ this.props.backendMovies }
               />
               :
-              <MovieButton handleButtonClick={ this.handleButtonClick } />
+              <>
+                <MovieButton shuffle={ this.props.shuffle } handleButtonClick={ this.handleButtonClick } />
+
+              </>
             }
           </Sidebar.Pusher>
         </Sidebar.Pushable>

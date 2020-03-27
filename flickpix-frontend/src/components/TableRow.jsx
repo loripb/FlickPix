@@ -32,7 +32,7 @@ class TableRow extends Component {
             <Button as='div' labelPosition='right'>
               <Button color='orange' onClick={ this.handleSliderClick }>
                 <Icon name='eye' />
-                
+
               </Button>
                 <Label as='a' basic color='red' pointing='left'>
                   {this.props.queueObj.watched ? "watched" : "queued"}
@@ -42,7 +42,7 @@ class TableRow extends Component {
           <Table.Cell>{ this.state.movie.title }</Table.Cell>
           <Table.Cell>{ this.state.movie.vote_average }</Table.Cell>
           <Table.Cell>{ this.state.movie.release_date }</Table.Cell>
-          <Table.Cell>{ this.state.movie.vote_average }</Table.Cell>
+          <Table.Cell>{ this.state.movie.overview }</Table.Cell>
           <Table.Cell>
             <Button animated onClick={ this.handleButtonClick }>
               <Button.Content visible>Delete</Button.Content>

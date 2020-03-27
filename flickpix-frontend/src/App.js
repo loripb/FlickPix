@@ -166,6 +166,15 @@ class App extends React.Component {
 
   }
 
+  shuffle = () => {
+    fetch("http://localhost:4000/api")
+    .then(r => r.json())
+    .then(data => this.setState({
+      movies: data.results
+    }))
+    console.log("done");
+  }
+
   render() {
     return (
       <Switch>
@@ -182,6 +191,7 @@ class App extends React.Component {
                 updateQueue={ this.updateQueue }
                 deleteFromQueue={ this.deleteFromQueue }
                 logout={ this.logout }
+                shuffle={  this.shuffle }
               />
             } />
           <Route render={ () => <p>Page not Found</p> } />
